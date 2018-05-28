@@ -1,0 +1,5 @@
+node_modules/
+.idea
+spec/mockProject/main.js
+spec/mockProject/main.js.map
+spec/mockProject/main.d.ts
