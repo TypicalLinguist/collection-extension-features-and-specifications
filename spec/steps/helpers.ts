@@ -20,11 +20,23 @@ async function installModule(moduleName: string) {
 }
 
 async function compile() {
-    await spawn(`tsc`, `-p ./`.split(' '), {cwd: cwd})
+    const promise = spawn(`ttsc`, `-p ./`.split(' '), {
+        cwd: cwd
+    });
+
+    promise.childProcess.stderr.on('data', function(data) {
+        console.log(data.toString())
+    });
+
+    promise.childProcess.stdout.on('data', function(data) {
+        console.log(data.toString())
+    });
+
+    await promise
 }
 
 async function execute() {
-    const promise = spawn(`node`, `./main.js`.split(' '), {cwd: cwd})
+    const promise = spawn(`node`, `./build/main.js`.split(' '), {cwd: cwd});
     promise.childProcess.stderr.on('data', (data) => {
         throw data.toString()
     });

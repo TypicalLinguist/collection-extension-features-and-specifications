@@ -9,9 +9,10 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "declaration": true,
+    "outDir": "build",
     "plugins": [
       {
-        "transform": "@typical-linguist/collections-extension-transformer"
+        "transform": "./node_modules/@typical-linguist/collections-extension-transformer/source/main/index.ts"
       }
     ]
   },

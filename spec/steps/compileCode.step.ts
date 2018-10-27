@@ -2,10 +2,11 @@ import {After, Given, Then, When} from 'cucumber';
 import * as assert from "assert";
 import {existsAsync, removeAsync} from "fs-extra-promise";
 import {compile, cwd, GeneratedFiles, installModule} from "./helpers";
+import {ExitStatus} from "typescript";
 
 const And = Given;
 
-let error: Error;
+let error: any;
 
 Given(`I have installed {string}`, async function (moduleName) {
     await installModule(moduleName);
@@ -25,8 +26,9 @@ When(`I compile the code`, async function () {
 });
 
 Then(`I should not see any errors`, function () {
-    if (error)
+    if (error) {
         throw error
+    }
 });
 
 And(`The compiled code should exist`, async function () {

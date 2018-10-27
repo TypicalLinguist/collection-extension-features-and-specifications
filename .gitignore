@@ -3,3 +3,5 @@ node_modules/
 spec/mockProject/main.js
 spec/mockProject/main.js.map
 spec/mockProject/main.d.ts
+spec/mockProject/.typicalLinguist/
+spec/mockProject/build/

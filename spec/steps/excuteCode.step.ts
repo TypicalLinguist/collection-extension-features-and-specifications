@@ -11,7 +11,7 @@ let error: Error;
 Given(`I have included the transformer in my package config`, async function () {
     const pluginConfigs: PluginConfig[] = [
         {
-            transform: "@typical-linguist/collections-extension-transformer"
+            transform: "./node_modules/@typical-linguist/collections-extension-transformer/source/main/index.ts",
         }
     ];
 
